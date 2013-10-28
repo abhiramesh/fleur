@@ -1,4 +1,16 @@
 Fleur::Application.routes.draw do
+
+  devise_for :users
+
+  root :to => 'static_pages#home'
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+      match '/login', :controller => 'users', :action => 'login', :via => :post
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
