@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  has_many :authorizations
   
   before_save :ensure_authentication_token
  
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
       token = SecureRandom.hex
       break token unless User.where(authentication_token: token).first
     end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(self.authorizations.find_by_provider("facebook").first.oauth_token)
   end
 
 end
