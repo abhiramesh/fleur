@@ -3,11 +3,11 @@ NexaBold.otf: NexaBold-9e9d17c97f9f67edba67708702a81f81.otf
 NexaBold/index.otf: NexaBold-9e9d17c97f9f67edba67708702a81f81.otf
 NexaLight.otf: NexaLight-5d5c2f10317f31c9ff2fe7adacd6a4c5.otf
 NexaLight/index.otf: NexaLight-5d5c2f10317f31c9ff2fe7adacd6a4c5.otf
-logo.png: logo-41627b5f38459087ed9bc82297b01356.png
-logo/index.png: logo-41627b5f38459087ed9bc82297b01356.png
+logo.png: logo-c68213fe792c00980301c30441774ccf.png
+logo/index.png: logo-c68213fe792c00980301c30441774ccf.png
 application.js: application-2b5735f1e3b0674659610365800001a8.js
 application/index.js: application-2b5735f1e3b0674659610365800001a8.js
-application.css: application-80a010c233b355d117bbed484825a802.css
-application/index.css: application-80a010c233b355d117bbed484825a802.css
+application.css: application-6ec3d3d5750071b6a8db02a615c618e5.css
+application/index.css: application-6ec3d3d5750071b6a8db02a615c618e5.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
