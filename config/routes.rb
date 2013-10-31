@@ -7,6 +7,8 @@ Fleur::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users
+      resources :items
+      resources :votes
       post '/signup', :controller => 'users', :action => 'signup'
       post '/login', :controller => 'users', :action => 'login'
     end

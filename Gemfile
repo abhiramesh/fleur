@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 gem 'delayed_job_active_record'
 gem 'client_side_validations'
+gem 'mechanize'
 
 # Gems used only for assets and not required
 # in production environments by default.
