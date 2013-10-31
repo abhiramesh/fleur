@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :authorizations
+  has_many :votes
   
   before_save :ensure_authentication_token
  

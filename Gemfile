@@ -12,6 +12,7 @@ gem 'newrelic_rpm'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'delayed_job_active_record'
+gem 'client_side_validations'
 
 # Gems used only for assets and not required
 # in production environments by default.

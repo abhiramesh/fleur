@@ -1,0 +1,14 @@
+<div class="container-fluid" align="center">
+	<div>
+		<img src="/assets/logo.png" class="fleur-logo">	
+	</div>
+	<div class="tagline">
+		FLEUR
+	</div>
+	<div class="ticker-form">
+		<%= form_for Beta.new, remote: true, :validate => true, :url => "/create_beta" do |f| %>
+			<%= f.email_field :email, :validate => true, :placeholder => "your@email.com" %>
+		<%= f.submit "Get in line", :class => "submit-beta" %>
+		<% end %>
+	</div>
+</div>

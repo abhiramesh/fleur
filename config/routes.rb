@@ -12,6 +12,8 @@ Fleur::Application.routes.draw do
     end
   end
 
+  post '/create_beta', :controller => 'betas', :action => 'create'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
