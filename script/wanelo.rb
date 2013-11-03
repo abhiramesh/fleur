@@ -4,10 +4,10 @@ require 'csv'
 
 a = Mechanize.new
 
-CSV.open('wanelo_items.csv', 'ab') do |csv|
+CSV.open('all_wanelo_items.csv', 'ab') do |csv|
 	#csv << ["Wanelo Link", "Item Name", "Store Name", "Store Link", "Image Url"]
 	csv << []
-	(26..119).each do |page|
+	(81..119).each do |page|
 		puts "***************************"
 		puts page
 		puts "***************************"

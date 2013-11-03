@@ -20,14 +20,14 @@ $fleurLightred: #d43f37;
 /* Logo & Tag */
 
 .fleur-logo{
-	width: 95%;
+	width: 85%;
 	max-width: 400px;
 }
 
 .tagline{
 	font-family: 'Nexa Light';
 	font-size: 5em;
-	padding-bottom: 45px;
+	padding-bottom: 10px;
 	color: $fleurRed;
 }
 
@@ -50,6 +50,7 @@ $fleurLightred: #d43f37;
 	border-radius: 3px;
 	width: 60%;
 	max-width: 350px;
+	width: 90%;
 }
 
 .submit-beta:hover{
@@ -59,7 +60,7 @@ $fleurLightred: #d43f37;
 
 input#beta_email{
 	height: 71px;
-	width: 60%;
+	width: 90%;
 	max-width: 350px;
 	margin-bottom: 15px;
 	border: 1px solid #CCC;
@@ -88,3 +89,23 @@ span.position{
 }
 
 /* Mobile Optimized */
+/*
+@media (max-width: 992px) {
+
+	.fleur-logo{
+		width: 95%;
+		max-width: 550px;
+	}
+
+	input#beta_email{
+		max-width: none;
+		height: 150px;
+		font-size: 40px;
+	}
+
+	.submit-beta{
+		max-width: none;
+		height: 150px;
+		font-size: 55px;
+	}
+}*/
