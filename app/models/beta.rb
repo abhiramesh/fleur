@@ -7,11 +7,11 @@ class Beta < ActiveRecord::Base
    acts_as_list
 
    def reward_beta_for_referral
-   	if referrer_first = Beta.where(:viral => self.referrer).first
+   	if self.referrer != nil && referrer_first = Beta.where(:viral => self.referrer).first
    		2.times do
    			referrer_first.move_higher
    		end
-   		if referrer_minus_one = Beta.where(:viral => referrer_first.referrer).first
+   		if referrer_first.referrer != nil && referrer_minus_one = Beta.where(:viral => referrer_first.referrer).first
    			referrer_minus_one.move_higher
    		end
    	end

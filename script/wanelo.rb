@@ -2,12 +2,6 @@ require 'mechanize'
 require 'json'
 require 'csv'
 
-position = 22
-(1..1000).each do |i|
-	Beta.create(:email => 'fake' + i.to_s + '@fakemail.com')
-	position += 1
-end
-
 a = Mechanize.new
 
 CSV.open('all_wanelo_items.csv', 'ab') do |csv|
