@@ -1,7 +1,7 @@
 class BetasController < ApplicationController
 
 	def create
-		all = Beta.all.sort_by{|b| -b.position}
+		all = Beta.all.sort_by{|b| b.position}
 		position = all.last.position + 1
 		if request.referrer.to_s.include? "refid="
 			referrer = request.referrer.to_s.split('?refid=').last
