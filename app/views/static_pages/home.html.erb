@@ -11,4 +11,54 @@
 		<%= f.submit "Get in line", :class => "submit-beta" %>
 		<% end %>
 	</div>
+	<div class="row sharing-icons" align="center">
+		<div class="col-md-6 col-xs-6">
+			<a id="fb-popup" href="https://www.facebook.com/dialog/feed?app_id=1425543210991444&display=popup&caption=Get%20on%20the%20wait%20list%20for%20FLEUR!&link=http%3A%2F%2Ffleurapp.com&redirect_uri=http://fleurapp.com">
+				<div class="facebook-share">
+					Invite your friends!
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<a id="twitter-popup" href="http://twitter.com/share?url=http%3A%2F%2Ffleurapp.com&text=Get%20on%20the%20waitlist%20for%20FLEUR!%20The%20more%20the%20merrier!">
+				<div class="twitter-share">
+						Tweet about us!				
+				</div>
+			</a>
+		</div>
+	</div>
 </div>
+<script>
+  $('#twitter-popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+ 
+    return false;
+  });
+    $('#fb-popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'fb', opts);
+ 
+    return false;
+  });
+</script>

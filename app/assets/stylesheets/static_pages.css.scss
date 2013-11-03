@@ -87,25 +87,45 @@ span.position{
 	font-family: 'Nexa Light';
 	display: block;
 }
+/* Sharing Section */
 
-/* Mobile Optimized */
-/*
-@media (max-width: 992px) {
+.sharing-icons{
+	margin-bottom: 30px;
+	width: 100%;
+	max-width: 920px;
+}
 
-	.fleur-logo{
-		width: 95%;
-		max-width: 550px;
-	}
+.sharing-icons a{
+	color: white !important;
+	text-decoration: none;
+	font-family: 'Nexa Light';
+	font-size: 18px;
+}
 
-	input#beta_email{
-		max-width: none;
-		height: 150px;
-		font-size: 40px;
-	}
+.facebook-share{
+	background: #3b5998;
+	width: 75%;
+	max-width: 250px;
+	border-radius: 3px;
+	padding: 20px 20px;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
 
-	.submit-beta{
-		max-width: none;
-		height: 150px;
-		font-size: 55px;
-	}
-}*/
+.facebook-share:hover{
+	background: #37528c;
+}
+
+.twitter-share {
+	background: #1daee3;
+	width: 75%;
+	max-width: 250px;
+	border-radius: 3px;
+	padding: 20px 20px;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+
+.twitter-share:hover {
+	background:#1ca4d6;
+}
