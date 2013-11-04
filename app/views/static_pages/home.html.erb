@@ -5,10 +5,15 @@
 	<div class="tagline">
 		FLEUR
 	</div>
+	<div class="catch-phrase">
+		See things you love. Get rewarded for loving them.
+	</div>
 	<div class="ticker-form">
 		<%= form_for Beta.new, remote: true, :validate => true, :url => "/create_beta" do |f| %>
 			<%= f.email_field :email, :validate => true, :placeholder => "your@email.com" %>
-		<%= f.submit "Get in line", :class => "submit-beta" %>
+			<div>
+				<%= f.submit "Get in line", :class => "submit-beta" %>
+			</div>
 		<% end %>
 	</div>
 	<div class="row sharing-icons" align="center">

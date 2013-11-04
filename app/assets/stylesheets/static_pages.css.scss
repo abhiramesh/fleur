@@ -21,13 +21,21 @@ $fleurLightred: #d43f37;
 
 .fleur-logo{
 	width: 85%;
-	max-width: 400px;
+	max-width: 200px;
 }
 
 .tagline{
 	font-family: 'Nexa Light';
-	font-size: 5em;
+	font-size: 3em;
 	padding-bottom: 10px;
+	color: $fleurRed;
+}
+
+.catch-phrase{
+	font-family: 'Nexa Light';
+	font-size: 2em;
+	padding: 10px;
+	line-height: 40px;
 	color: $fleurRed;
 }
 

@@ -1,19 +1,16 @@
 class Api::V1::UsersController < ApplicationController
 
-	#before_filter :authenticate_user_from_token!
- 	#before_filter :authenticate_user!
-
 	def signup
 		if params["email"] && params["password"]
 			user = User.find_by_email(params["email"])
 			if user
-				render json: {errors: ["An account with that email already exists! Please login."]}
+				render json: {status: ["An account with that email already exists! Please login."]}
 			else
 				new_user = User.create(email: params["email"], password: params["password"])
 				if new_user.save
 					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s}
 				else
-					render :json => {:errors => new_user.errors.full_messages}
+					render :json => {:status => new_user.errors.full_messages}
 				end
 			end
 		elsif params["oauth_token"] && params["expires_at"]
@@ -41,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
 					sign_in new_user
 					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s}
 				else
-					render :json => {:errors => new_user.errors.full_messages}
+					render :json => {:status => new_user.errors.full_messages}
 				end
 			end
 		end
@@ -56,10 +53,10 @@ class Api::V1::UsersController < ApplicationController
 				sign_in user
 				render json: {auth_token: user.authentication_token, email: user.email, sign_in_count: user.sign_in_count.to_s}
 			else
-				render json: {errors: ["Invalid email or password"]}
+				render json: {status: ["Invalid email or password"]}
 			end
 		else
-			render json: {errors: ["Invalid email or password"]}
+			render json: {status: ["Invalid email or password"]}
 		end
 	end
 

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :authorizations
   has_many :votes
+  has_many :actions
+  has_many :items, through: :votes
   
   before_save :ensure_authentication_token
  

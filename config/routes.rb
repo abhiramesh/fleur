@@ -11,6 +11,10 @@ Fleur::Application.routes.draw do
       resources :votes
       post '/signup', :controller => 'users', :action => 'signup'
       post '/login', :controller => 'users', :action => 'login'
+      post '/like', :controller => 'votes', :action => 'like_item'
+      post '/dislike', :controller => 'votes', :action => 'dislike_item'
+      post '/love', :controller => 'votes', :action => 'love_item'
+      
     end
   end
 
