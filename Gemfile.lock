@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/ivanku/linalg
-  revision: b72835200dfdb3dfd114d3f3282ef68bdf065c0f
-  specs:
-    linalg (1.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,7 +175,6 @@ DEPENDENCIES
   jquery-rails
   json
   koala
-  linalg!
   mechanize
   newrelic_rpm
   omniauth-facebook
