@@ -173,6 +173,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   jquery-rails
+  jruby_mahout
   json
   koala
   mechanize
