@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
 					render :json => {:status => new_user.errors.full_messages}
 				end
 			end
-		elsif params["oauth_token"] && params["expires_at"]
+		elsif params["oauth_token"]
 			graph = Koala::Facebook::API.new(params["oauth_token"])
 			me = graph.get_object("me")
 			user = User.find_by_email(me["email"])
@@ -34,12 +34,14 @@ class Api::V1::UsersController < ApplicationController
 				email = me["email"]
 				new_user = User.create(email: email, password: Devise.friendly_token)
 				if new_user.save
-					auth = Authorization.create(user_id: new_user.id, provider: "facebook", oauth_token: params["oauth_token"], oauth_expires_at: Time.parse(params["expires_at"]), uid: uid, name: name)
+					auth = Authorization.create(user_id: new_user.id, provider: "facebook", oauth_token: params["oauth_token"], uid: uid, name: name)
 					sign_in new_user
 					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s}
 				else
 					render :json => {:status => new_user.errors.full_messages}
 				end
+			elsif user && !auth
+				render json: {status: ["An account with that email already exists! Please login."]}
 			end
 		end
 	end
@@ -57,6 +59,32 @@ class Api::V1::UsersController < ApplicationController
 			end
 		else
 			render json: {status: ["Invalid email or password"]}
+		end
+	end
+
+	def follow_user
+		if params["follow_id"]
+			other_user = User.find(params["follow_id"])
+			if other_user
+				current_user.follow!(other_user)
+			else
+				render json: {status: ["Something went wrong!"]}
+			end
+		else
+			render json: {status: ["Something went wrong!"]}
+		end
+	end
+
+	def unfollow_user
+		if params["follow_id"]
+			other_user = User.find(params["follow_id"])
+			if other_user
+				current_user.unfollow!(other_user)
+			else
+				render json: {status: ["Something went wrong!"]}
+			end
+		else
+			render json: {status: ["Something went wrong!"]}
 		end
 	end
 

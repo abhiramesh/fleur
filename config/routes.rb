@@ -11,10 +11,12 @@ Fleur::Application.routes.draw do
       resources :votes
       post '/signup', :controller => 'users', :action => 'signup'
       post '/login', :controller => 'users', :action => 'login'
+      post '/follow', :controller => 'users', :action => 'follow_user'
+      post '/unfollow', :controller => 'users', :action => 'unfollow_user'
       post '/like', :controller => 'votes', :action => 'like_item'
       post '/dislike', :controller => 'votes', :action => 'dislike_item'
       post '/love', :controller => 'votes', :action => 'love_item'
-      
+      get '/feed_items', :controller => 'items', :action => 'get_feed_items'
     end
   end
 

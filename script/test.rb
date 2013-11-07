@@ -1,5 +1,6 @@
 require 'mechanize'
 require 'json'
+require 'csv'
 
 # a = Mechanize.new
 # url = "http://3i46.localtunnel.com/api/v1/signup"
@@ -11,24 +12,16 @@ require 'json'
 # puts response.content
 
 
+# a = Mechanize.new
+# url = "http://4yv2.localtunnel.com/api/v1/feed_items"
+# 	params = {
+# 		"user_token" => "a0eaca984a22220a1962e11b2799b5c0"
+# 	}
+# response = a.post(url, params)
+# puts response.content
+
 a = Mechanize.new
-url = "http://4zvq.localtunnel.com/api/v1/like"
-	params = {
-		"user_token" => '0cf1ecd95261f03adfe065fb010c8fad'
-	}
-response = a.post(url, params)
-puts response.content
-
-url = "http://4zvq.localtunnel.com/api/v1/dislike"
-	params = {
-		"user_token" => '0cf1ecd95261f03adfe065fb010c8fad'
-	}
-response = a.post(url, params)
-puts response.content
-
-url = "http://4zvq.localtunnel.com/api/v1/love"
-	params = {
-		"user_token" => '0cf1ecd95261f03adfe065fb010c8fad'
-	}
-response = a.post(url, params)
-puts response.content
+CSV.foreach('wan2.csv') do |row|
+	puts row
+	Item.create(:name => row[1].squish, :image => row[4], :src_url => row[3])
+end
