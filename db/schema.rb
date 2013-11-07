@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106223546) do
+ActiveRecord::Schema.define(:version => 20131107022019) do
 
   create_table "actions", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20131106223546) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "actions", ["user_id"], :name => "index_actions_on_user_id"
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20131106223546) do
     t.datetime "updated_at",       :null => false
   end
 
+  add_index "authorizations", ["user_id"], :name => "index_authorizations_on_user_id"
+
   create_table "beta", :force => true do |t|
     t.string   "email"
     t.integer  "position"
@@ -41,6 +45,22 @@ ActiveRecord::Schema.define(:version => 20131106223546) do
     t.string   "viral"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "items", :force => true do |t|
     t.text     "name"
     t.text     "image"
@@ -48,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20131106223546) do
     t.text     "src_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "brand"
   end
 
   create_table "relationships", :force => true do |t|
@@ -89,5 +110,8 @@ ActiveRecord::Schema.define(:version => 20131106223546) do
     t.datetime "updated_at", :null => false
     t.boolean  "love"
   end
+
+  add_index "votes", ["item_id"], :name => "index_votes_on_item_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

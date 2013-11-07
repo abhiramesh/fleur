@@ -21,7 +21,10 @@ require 'csv'
 # puts response.content
 
 a = Mechanize.new
+b = []
 CSV.foreach('wan2.csv') do |row|
-	puts row
-	Item.create(:name => row[1].squish, :image => row[4], :src_url => row[3])
+	puts row[1]
+	b << row[1]
+	Item.create(:name => row[1].squish, :image => row[4], :src_url => row[3], :brand => row[2])
+	break if b.length == 50
 end
