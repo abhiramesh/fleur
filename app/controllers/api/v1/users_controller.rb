@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
 				if new_user.save
 					auth = Authorization.create(user_id: new_user.id, provider: "facebook", oauth_token: params["oauth_token"], uid: uid, name: name)
 					sign_in new_user
-					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s, image: user.image}
+					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s, image: new_user.image}
 				else
 					render :json => {:status => new_user.errors.full_messages}
 				end
