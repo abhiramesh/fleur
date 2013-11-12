@@ -15,6 +15,7 @@ gem 'delayed_job_active_record'
 gem 'client_side_validations'
 gem 'mechanize'
 gem 'acts_as_list'
+gem 'will_paginate', '~> 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
