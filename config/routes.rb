@@ -17,6 +17,8 @@ Fleur::Application.routes.draw do
       post '/dislike', :controller => 'votes', :action => 'dislike_item'
       post '/love', :controller => 'votes', :action => 'love_item'
       get '/feed_items', :controller => 'items', :action => 'get_feed_items'
+      get '/liked_items', :controller => 'items', :action => 'get_liked_items'
+      get '/loved_items', :controller => 'items', :action => 'get_loved_items'
     end
   end
 

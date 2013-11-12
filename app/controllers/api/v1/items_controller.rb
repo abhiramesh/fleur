@@ -14,5 +14,21 @@ class Api::V1::ItemsController < ApplicationController
 		render json: @items, :only => [:id, :image, :name, :src_url]
 	end
 
+	def get_liked_items
+		@items = []
+		@votes = current_user.votes.where(:like => true)
+		@votes.each do |v|
+			@items << v.item
+		end
+	end
+
+	def get_loved_items
+		@items = []
+		@votes = current_user.votes.where(:love => true)
+		@votes.each do |v|
+			@items << v.item
+		end
+	end
+
 
 end
