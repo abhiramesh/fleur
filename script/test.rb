@@ -13,7 +13,7 @@ require 'csv'
 
 
 a = Mechanize.new
-url = "http://5ayn.localtunnel.com/api/v1/liked_items/?page=1"
+url = "http://4m39.localtunnel.com/api/v1/liked_items/?page=1"
 	params = {
 		"user_token" => "86542e337e68f3679b8b5879b81520ba"
 	}

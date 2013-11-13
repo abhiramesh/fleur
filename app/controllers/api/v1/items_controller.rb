@@ -17,14 +17,6 @@ class Api::V1::ItemsController < ApplicationController
 		render json: @items, :only => [:id, :image, :name, :src_url]
 	end
 
-	def get_liked_items
-		@items = []
-		@votes = current_user.votes.where(:like => true).paginate(:page => params[:page], :per_page => 15)
-		@votes.each do |v|
-			@items << v.item
-		end
-		render json: @items, :only => [:id, :image, :name, :src_url]
-	end
 
 	def get_loved_items
 		@items = []
@@ -34,6 +26,5 @@ class Api::V1::ItemsController < ApplicationController
 		end
 		render json: @items, :only => [:id, :image, :name, :src_url]
 	end
-
 
 end
