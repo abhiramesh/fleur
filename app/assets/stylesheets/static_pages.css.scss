@@ -4,8 +4,8 @@
 
 /* Fonts and Colors */
 
-$fleurRed: #B51A12;
-$fleurLightred: #d43f37;
+$fleurOrange: #E96936;
+$fleurLightorange: #FD7D50;
 
 @font-face {
     font-family: 'Nexa Bold';
@@ -28,7 +28,7 @@ $fleurLightred: #d43f37;
 	font-family: 'Nexa Light';
 	font-size: 3em;
 	padding-bottom: 10px;
-	color: $fleurRed;
+	color: $fleurOrange;
 }
 
 .catch-phrase{
@@ -36,7 +36,7 @@ $fleurLightred: #d43f37;
 	font-size: 2em;
 	padding: 10px;
 	line-height: 40px;
-	color: $fleurRed;
+	color: $fleurOrange;
 }
 
 /* Waitlist Form */
@@ -49,7 +49,7 @@ $fleurLightred: #d43f37;
 }
 
 .submit-beta{
-	background: $fleurRed;
+	background: $fleurOrange;
 	border: none;
 	color: white;
 	padding: 20px 50px;
@@ -62,7 +62,7 @@ $fleurLightred: #d43f37;
 }
 
 .submit-beta:hover{
-	background: $fleurLightred;
+	background: $fleurLightorange;
 
 }
 
@@ -81,17 +81,17 @@ input#beta_email{
 
 input:focus {
 	outline: solid;
-	outline-color: $fleurLightred;
+	outline-color: $fleurLightorange;
 	outline-width: 1px;
 }
 
 span.position{
-	color: $fleurRed;
+	color: $fleurOrange;
 }
 
 .message{
 	font-size: 14px;
-	color: $fleurRed;
+	color: $fleurOrange;
 	font-family: 'Nexa Light';
 	display: block;
 }

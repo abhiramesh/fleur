@@ -45,20 +45,14 @@ a = Mechanize.new
 # puts response.content
 # end
 
-# (1..100).each do |id|
-# url = "http://ec2-23-22-86-95.compute-1.amazonaws.com:8000/items.json"
-# 	params = {
-# 		"pio_appkey" => "UKG01Nnn6pjEk4WZ7oBO2dlwISHMBupxam13yrUbB8xVqCWsFXkaVxefooGslVYA",
-# 		"pio_iid" => id.to_s, 
-# 		"pio_itypes" => "item"
-# 	}
-# begin
-# response = a.post(url, params)
-# rescue Exception => e
-# 	puts e.message
-# end
-# puts response.content
-# end
+url = "http://ec2-23-22-86-95.compute-1.amazonaws.com:8000/items.json"
+params = {
+"pio_appkey" => "UKG01Nnn6pjEk4WZ7oBO2dlwISHMBupxam13yrUbB8xVqCWsFXkaVxefooGslVYA",
+"pio_iid" => item.id.to_s, 
+"pio_itypes" => "item"
+}
+response = a.post(url, params)
+puts response.content
 
 # (1..5).each do |uid|
 # 	25.times do
