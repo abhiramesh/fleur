@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   
   before_save :ensure_authentication_token
+
+  require 'mechanize'
  
   def ensure_authentication_token
     if authentication_token.blank?
@@ -27,6 +29,26 @@ class User < ActiveRecord::Base
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(self.authorizations.find_by_provider("facebook").first.oauth_token)
+  end
+
+  def get_profile_image
+    graph = Koala::Facebook::API.new(self.authorizations.find_by_provider("facebook").first.oauth_token)
+    if graph
+      g = graph.fql_query("SELECT url FROM square_profile_pic WHERE id = me() AND size=200")
+      g = JSON.parse(g.to_json)
+      image = g[0]["url"]
+      self.image = image
+      self.save!
+    end
+  end
+
+  def send_user_to_predict
+    url = "http://ec2-23-22-86-95.compute-1.amazonaws.com:8000/users.json"
+    params = {
+      "pio_appkey" => "UKG01Nnn6pjEk4WZ7oBO2dlwISHMBupxam13yrUbB8xVqCWsFXkaVxefooGslVYA",
+      "pio_uid" => self.id.to_s
+    }
+    puts response.content
   end
 
   def following?(other_user)

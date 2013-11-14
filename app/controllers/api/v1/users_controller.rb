@@ -8,6 +8,7 @@ class Api::V1::UsersController < ApplicationController
 			else
 				new_user = User.create(email: params["email"], password: params["password"])
 				if new_user.save
+					new_user.delay.send_user_to_predict
 					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s}
 				else
 					render :json => {:status => new_user.errors.full_messages}
@@ -33,11 +34,10 @@ class Api::V1::UsersController < ApplicationController
 				name = me["name"]
 				email = me["email"]
 				location = me["location"]["name"]
-				g = graph.fql_query("SELECT url FROM square_profile_pic WHERE id = me() AND size=200")
-				g = JSON.parse(g.to_json)
-				image = g[0]["url"]
-				new_user = User.create(email: email, password: Devise.friendly_token, image: image, location: location)
+				new_user = User.create(email: email, password: Devise.friendly_token, location: location)
 				if new_user.save
+					new_user.delay.get_profile_image
+					new_user.delay.send_user_to_predict
 					auth = Authorization.create(user_id: new_user.id, provider: "facebook", oauth_token: params["oauth_token"], uid: uid, name: name)
 					sign_in new_user
 					render json: {auth_token: new_user.authentication_token, email: new_user.email, sign_in_count: new_user.sign_in_count.to_s, image: new_user.image}

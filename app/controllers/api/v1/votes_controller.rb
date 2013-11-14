@@ -11,6 +11,7 @@ class Api::V1::VotesController < ApplicationController
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save
 			if vote.save && action.save && current_user.save
+				vote.delay.send_like_to_predict
 				render json: { status: "Item Liked!" }
 			else
 				render json: { status: "Something went wrong!" }
@@ -28,6 +29,7 @@ class Api::V1::VotesController < ApplicationController
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save
 			if vote.save && action.save && current_user.save
+				vote.delay.send_dislike_to_predict
 				render json: { status: "Item Disliked!" }
 			else
 				render json: { status: "Something went wrong!" }
@@ -45,6 +47,7 @@ class Api::V1::VotesController < ApplicationController
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save
 			if vote.save && action.save && current_user.save
+				vote.delay.send_love_to_predict
 				render json: { status: "Item Loved!" }
 			else
 				render json: { status: "Something went wrong!" }
