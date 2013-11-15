@@ -17,11 +17,40 @@ $fleurLightorange: #FD7D50;
     src: url('NexaLight.otf');
 }
 
+/* BG and Hand */
+
+.bg{
+  background: url(bg.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.bg-content{
+	margin-top: 100px;
+}
+
+.bg-hand{
+	text-align: center;
+	margin-top: 66px	
+}
+
+.hand {
+	width: 100%;
+	max-width: 450px;
+
+}
+
 /* Logo & Tag */
 
 .fleur-logo{
 	width: 85%;
 	max-width: 200px;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
 }
 
 .tagline{
@@ -33,10 +62,10 @@ $fleurLightorange: #FD7D50;
 
 .catch-phrase{
 	font-family: 'Nexa Light';
-	font-size: 2em;
-	padding: 10px;
-	line-height: 40px;
-	color: $fleurOrange;
+	font-size: 3em;
+	padding: 30px 10px 10px 10px;
+	line-height: 48px;
+	color: #FFFFFF;
 }
 
 /* Waitlist Form */
@@ -45,7 +74,7 @@ $fleurLightorange: #FD7D50;
 	padding-bottom: 50px;
 	font-family: 'Nexa Light';
 	font-size: 36px;
-	color: #313131;
+	color: #FFFFFF;
 }
 
 .submit-beta{
@@ -136,4 +165,26 @@ span.position{
 
 .twitter-share:hover {
 	background:#1ca4d6;
+}
+
+#fb-popup{
+	display: none;
+}
+
+#twitter-popup{
+	display: none;
+}
+
+
+/* HomePage Media Query */
+
+@media (max-width: 600px) {
+  .catch-phrase {
+    font-size: 2em;
+    line-height: 35px;
+  }
+
+  .bg-content{
+  	margin-top: 20px;
+  }
 }

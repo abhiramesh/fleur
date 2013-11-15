@@ -2,7 +2,11 @@ class BetasController < ApplicationController
 
 	def create
 		all = Beta.all.sort_by{|b| b.position}
-		position = all.last.position + 1
+		if all.last
+			position = all.last.position + 1
+		else
+			position = 1
+		end
 		if request.referrer.to_s.include? "refid="
 			referrer = request.referrer.to_s.split('?refid=').last
 		end

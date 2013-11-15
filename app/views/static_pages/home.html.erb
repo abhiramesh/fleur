@@ -1,38 +1,43 @@
-<div class="container-fluid" align="center">
-	<div>
-		<img src="/assets/logo.png" class="fleur-logo">	
+<div class="bg">
+	<div class="container catch-phrase" align="center">
+		The most addictive way to discover things you love
 	</div>
-	<div class="tagline">
-		FLEUR
-	</div>
-	<div class="catch-phrase">
-		See things you love. Get rewarded for loving them.
-	</div>
-	<div class="ticker-form">
-		<%= form_for Beta.new, remote: true, :validate => true, :url => "/create_beta" do |f| %>
-			<%= f.email_field :email, :validate => true, :placeholder => "your@email.com" %>
-			<div>
-				<%= f.submit "Get in line", :class => "submit-beta" %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7 bg-content" align="center">
+				<div class="ticker-form">
+					<%= form_for Beta.new, remote: true, :validate => true, :url => "/create_beta" do |f| %>
+						<%= f.email_field :email, :validate => true, :placeholder => "your@email.com" %>
+						<div>
+							<%= f.submit "Get in line", :class => "submit-beta" %>
+						</div>
+					<% end %>
+				</div>
+				<div class="row sharing-icons" align="center">
+					<div class="col-md-6 col-xs-6">
+						<a id="fb-popup" href="https://www.facebook.com/dialog/feed?app_id=1425543210991444&display=popup&caption=Get%20on%20the%20wait%20list%20for%20FLEUR!&link=http%3A%2F%2Ffleurapp.com&redirect_uri=http://fleurapp.com">
+							<div class="facebook-share">
+								Invite your friends!
+							</div>
+						</a>
+					</div>
+					<div class="col-md-6 col-xs-6">
+						<a id="twitter-popup" href="http://twitter.com/share?url=http%3A%2F%2Ffleurapp.com&text=Get%20on%20the%20waitlist%20for%20FLEUR!%20The%20more%20the%20merrier!%20@fleurapp">
+							<div class="twitter-share">
+									Tweet about us!				
+							</div>
+						</a>
+					</div>
+				</div>
 			</div>
-		<% end %>
-	</div>
-	<div class="row sharing-icons" align="center">
-		<div class="col-md-6 col-xs-6">
-			<a id="fb-popup" href="https://www.facebook.com/dialog/feed?app_id=1425543210991444&display=popup&caption=Get%20on%20the%20wait%20list%20for%20FLEUR!&link=http%3A%2F%2Ffleurapp.com&redirect_uri=http://fleurapp.com">
-				<div class="facebook-share">
-					Invite your friends!
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 col-xs-6">
-			<a id="twitter-popup" href="http://twitter.com/share?url=http%3A%2F%2Ffleurapp.com&text=Get%20on%20the%20waitlist%20for%20FLEUR!%20The%20more%20the%20merrier!%20@fleurapp">
-				<div class="twitter-share">
-						Tweet about us!				
-				</div>
-			</a>
+			<div class="col-md-5 bg-hand">
+				<img src="/assets/hand.png" class="hand">
+			</div>
 		</div>
 	</div>
 </div>
+
+
 <script>
   $('#twitter-popup').click(function(event) {
     var width  = 575,
