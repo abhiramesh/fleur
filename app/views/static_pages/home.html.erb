@@ -13,7 +13,7 @@
 					<%= form_for Beta.new, remote: true, :validate => true, :url => "/create_beta" do |f| %>
 						<%= f.email_field :email, :validate => true, :placeholder => "your@email.com" %>
 						<div>
-							<%= f.submit "Get in line", :class => "submit-beta" %>
+							<%= f.submit "Reserve your spot", :class => "submit-beta" %>
 						</div>
 					<% end %>
 				</div>
