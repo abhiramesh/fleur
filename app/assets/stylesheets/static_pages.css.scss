@@ -29,43 +29,38 @@ $fleurLightorange: #FD7D50;
 }
 
 .bg-content{
-	margin-top: 100px;
+	margin-top: 80px;
 }
 
-.bg-hand{
+.bg-phone{
 	text-align: center;
-	margin-top: 66px	
+	margin-top: 46px	
 }
 
-.hand {
+.phone {
 	width: 100%;
-	max-width: 450px;
+	max-width: 325px;
 
 }
 
 /* Logo & Tag */
 
 .fleur-logo{
-	width: 85%;
-	max-width: 200px;
-	position: fixed;
-	right: 0px;
-	bottom: 0px;
+	width: 85px;
 }
 
 .tagline{
 	font-family: 'Nexa Light';
-	font-size: 3em;
-	padding-bottom: 10px;
+	font-size: 2.5em;
 	color: $fleurOrange;
 }
 
 .catch-phrase{
 	font-family: 'Nexa Light';
 	font-size: 3em;
-	padding: 30px 10px 10px 10px;
-	line-height: 48px;
-	color: #FFFFFF;
+	padding: 15px 10px 10px 10px;
+	line-height: 45px;
+	color: #313131;
 }
 
 /* Waitlist Form */
@@ -120,8 +115,8 @@ span.position{
 
 .message{
 	font-size: 14px;
-	color: $fleurOrange;
-	font-family: 'Nexa Light';
+	color: #313131;
+	font-family: 'Nexa Bold';
 	display: block;
 }
 /* Sharing Section */
