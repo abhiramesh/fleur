@@ -11,7 +11,7 @@ class Api::V1::ItemsController < ApplicationController
 			if !item.item_seen?(current_user)
 			@items << item				
 			end
-		break if @items.length == 30
+		break if @items.length == 25
 		end
 		Item.delay.create_vote(@items, current_user)
 
