@@ -6,7 +6,9 @@ class Api::V1::VotesController < ApplicationController
 	def like_item
 		item = Item.where(id: params["item_id"].to_i).first
 		if item && current_user
-			vote = Vote.create(:like => true, :item_id => item.id, :user_id => current_user.id)
+			vote = Vote.where(item_id: item.id, user_id: current_user.id)
+			vote.like = true
+			vote.save!
 			action = Action.create(:title => "swipe", :points => 1, :user_id => current_user.id)
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save
@@ -24,7 +26,9 @@ class Api::V1::VotesController < ApplicationController
 	def dislike_item
 		item = Item.where(id: params["item_id"].to_i).first
 		if item && current_user
-			vote = Vote.create(:like => false, :item_id => item.id, :user_id => current_user.id)
+			vote = Vote.where(item_id: item.id, user_id: current_user.id)
+			vote.like = false
+			vote.save!
 			action = Action.create(:title => "swipe", :points => 1, :user_id => current_user.id)
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save
@@ -42,7 +46,10 @@ class Api::V1::VotesController < ApplicationController
 	def love_item
 		item = Item.where(id: params["item_id"].to_i).first
 		if item && current_user
-			vote = Vote.create(:like => true, :love => true, :item_id => item.id, :user_id => current_user.id)
+			vote = Vote.where(item_id: item.id, user_id: current_user.id)
+			vote.like = true
+			vote.love = true
+			vote.save!
 			action = Action.create(:title => "love", :points => 1, :user_id => current_user.id)
 			current_user.points = current_user.points.to_i + action.points
 			current_user.save

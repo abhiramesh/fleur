@@ -9,4 +9,10 @@ class Item < ActiveRecord::Base
    	Vote.where(item_id: self.id, user_id: user.id).exists?
    end
 
+   def self.create_vote(items, user)
+   	items.each do |item|
+   		Vote.create(item_id: item.id, user_id: user.id)
+   	end
+   end
+
 end

@@ -13,6 +13,7 @@ class Api::V1::ItemsController < ApplicationController
 			end
 		break if @items.length == 15
 		end
+		Item.delay.create_vote(@items, current_user)
 
 		render json: @items, :only => [:id, :image, :name, :src_url]
 	end
